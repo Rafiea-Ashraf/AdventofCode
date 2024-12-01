@@ -1,0 +1,42 @@
+Puzzel 1:
+with open("/content/1day1.txt") as f:
+    lines = f.read().strip().split("\n")  # Read and split the file into lines
+
+left = []
+right = []
+
+# Loop through each line
+for line in lines:
+    l, r = map(int, line.split())  # Split each line into two numbers
+    left.append(l)                # Add to left list
+    right.append(r)               # Add to right list
+
+left.sort()  # Sort the left list
+right.sort()  # Sort the right list
+
+# Calculate the total distance
+total_distance = sum(abs(l - r) for l, r in zip(left, right))
+
+print("Total distance:", total_distance)
+
+  Puzzel 2:
+with open("/content/2day1.txt") as f:
+    lines = f.read().strip().split("\n")  # Read and split the file into lines
+
+left = []
+right = []
+
+# Loop through each line to process it
+for line in lines:
+    l, r = map(int, line.split())  # Split each line into two numbers
+    left.append(l)                 # Add to left list
+    right.append(r)                # Add to right list
+
+similarity_score = 0
+
+# Assuming you want to count occurrences of each number in the right list
+for num in left:
+    count_in_right = right.count(num)  # Count occurrences of num in the right list
+    similarity_score += num * count_in_right  # Increment similarity score
+
+print("Similarity Score:", similarity_score)
