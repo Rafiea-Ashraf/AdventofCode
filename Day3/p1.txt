@@ -1,0 +1,15 @@
+import re
+
+with open("/content/1day3.txt") as f:
+    data = f.read().strip()
+
+# Regular expression to match valid mul(X,Y) instructions
+pattern = r"mul\(\s*(\d+)\s*,\s*(\d+)\s*\)"
+
+# Find all valid matches in the input
+matches = re.findall(pattern, data)
+
+# Compute the sum of the products
+result = sum(int(x) * int(y) for x, y in matches)
+
+print(result)
